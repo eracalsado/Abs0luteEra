@@ -1,4 +1,4 @@
-    @font-face {
+@font-face {
       font-family: 'handwritten';
       src: url('fonts/Blinky\ Stright.otf') format('truetype');
     }
@@ -192,6 +192,21 @@
       height: auto;
     }
 
+#gallery .card {
+  cursor: pointer;
+}
+
+.modal.fade .modal-dialog {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+  opacity: 1;
+}
+
 .card {
   width: 350px;
   height: 250px;
@@ -231,48 +246,48 @@
   text-shadow: #000;
 }
 
-.genshinfront {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/Genshinfront.jpg');
+.A-front {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/1front.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-.genshinback {
-    background-image: url('assets/Genshinback.jpg');
+.A-back {
+    background-image: url('assets/1back.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-.drawingfront {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/Drawingfront.JPG');
+.B-front {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/2front.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-.drawingback {
-    background-image: url('assets/Drawingback.JPG');
+.B-back {
+    background-image: url('assets/2back.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-.dndfront {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/dndfront.jpg');
+.C-front {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/3front.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-.dndback {
-    background-image: url('assets/dndback.jpg');
+.C-back {
+    background-image: url('assets/3back.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

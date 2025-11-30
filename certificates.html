@@ -23,7 +23,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link text-white navtext" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link text-white navtext" href="Gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link text-white navtext" href="Interests.html">Interests</a></li>
+          <li class="nav-item"><a class="nav-link text-white navtext" href="certificates.html">Certificates</a></li>
           <li class="nav-item"><a class="nav-link text-white navtext" href="Aboutme.html">About</a></li>
         </ul>
       </div>
@@ -32,28 +32,16 @@
 
   <!-- Gallery Section -->
   <section id="gallery">
-    <h2 class="text-center mb-5">My Interests</h2>
+    <h2 class="text-center mb-5">My Certificates</h2>
     <div class="row">
 
       <div class="col-md-4 d-flex justify-content-center mb-4">
         <div class="card">
           <div class="card-inner">
-            <div class="card-front genshinfront">
-              <p class="innergenshin">Genshin Impact</p>
+            <div class="card-front A-front">
+              <p class="innergenshin">HTML and CCS</p>
             </div>
-            <div class="card-back genshinback">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 d-flex justify-content-center mb-4">
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-front drawingfront">
-              <p>Drawing</p>
-            </div>
-            <div class="card-back drawingback">
+            <div class="card-back A-back">
             </div>
           </div>
         </div>
@@ -62,10 +50,22 @@
       <div class="col-md-4 d-flex justify-content-center mb-4">
         <div class="card">
           <div class="card-inner">
-            <div class="card-front dndfront">
-              <p>Dungeons & Dragons</p>
+            <div class="card-front B-front">
+              <p>AI Ethics</p>
             </div>
-            <div class="card-back dndback">
+            <div class="card-back B-back">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 d-flex justify-content-center mb-4">
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front C-front">
+              <p>Python Basics</p>
+            </div>
+            <div class="card-back C-back">
             </div>
           </div>
         </div>
@@ -73,6 +73,16 @@
     
     </div>
   </section>
+
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-body p-0">
+          <img src="" class="modal-img" id="modalImage">
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Contact Section -->
   <section id="contact">
@@ -86,5 +96,31 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const certCards = document.querySelectorAll('#gallery .card');
+    const modalImage = document.getElementById('modalImage');
+    const imageModal = document.getElementById('imageModal');
+
+    certCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const backEl = card.querySelector('.card-back');
+        if (!backEl) return;
+        const bg = getComputedStyle(backEl).backgroundImage;
+        const match = bg && bg.match(/url\(["']?(.*?)["']?\)/);
+        const src = match ? match[1] : null;
+        if (!src) return;
+        modalImage.src = src;
+        const modal = new bootstrap.Modal(imageModal);
+        modal.show();
+      });
+    });
+
+    imageModal.addEventListener('click', (e) => {
+      if (e.target === imageModal) {
+        const modal = bootstrap.Modal.getInstance(imageModal);
+        modal && modal.hide();
+      }
+    });
+  </script>
 </body>
 </html>
